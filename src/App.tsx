@@ -51,7 +51,7 @@ function App() {
       setShowMessage(true);
       setTimeout(() => {
         window.location.href = "https://cv-gabs.vercel.app/";
-      }, 5000); // Redirige après 5 secondes
+      }, 5000);
     }
   }, []);
 
