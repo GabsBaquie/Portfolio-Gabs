@@ -1,6 +1,13 @@
-import { ContactShadows, Float, Html, useGLTF } from "@react-three/drei";
+import {
+  ContactShadows,
+  Float,
+  Html,
+  OrbitControls,
+  useGLTF,
+} from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 import { useEffect } from "react";
+import { isMobile } from "react-device-detect";
 
 function CameraController() {
   const { camera, size } = useThree();
@@ -44,7 +51,7 @@ function App() {
         position: [0, 0, 0.4],
       }}>
       <CameraController />
-
+      {!isMobile && <OrbitControls />}
       <directionalLight position={[2, 2, 2]} intensity={0.5} color={"blue"} />
       <directionalLight position={[2.2, 2, 3]} intensity={0.5} color={"blue"} />
 
