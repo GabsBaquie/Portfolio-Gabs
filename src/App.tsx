@@ -6,8 +6,8 @@ import {
   useGLTF,
 } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
-import { useEffect } from "react";
-import { isMobile } from "react-device-detect";
+import { useEffect, useState } from "react";
+import { isIPhone13, isMobile } from "react-device-detect";
 
 function CameraController() {
   const { camera, size } = useThree();
@@ -42,9 +42,16 @@ function CameraController() {
 function App() {
   const Mac = useGLTF("/MacBook.glb");
 
+  // Mobile responsive
+
+  const [showMessage, setShowMessage] = useState(false);
+
   useEffect(() => {
     if (isMobile) {
-      window.location.href = "https://cv-gabs.vercel.app/";
+      setShowMessage(true);
+      setTimeout(() => {
+        window.location.href = "https://cv-gabs.vercel.app/";
+      }, 5000); // Redirige après 5 secondes
     }
   }, []);
 
@@ -56,35 +63,41 @@ function App() {
         far: 2000,
         position: [0, 0, 0.4],
       }}>
+      // Message d'alerte pour les mobiles
+      {showMessage && (
+        <Html fullscreen>
+          <h1 style={{ color: "white", opacity: "0.5", margin: "22px" }}>
+            Vous serez dirigé vers la version mobile de ce site dans quelques
+            secondes...
+          </h1>
+        </Html>
+      )}
       <CameraController />
+      <OrbitControls />
       <OrbitControls enableZoom={true} enablePan={false} enableRotate={false} />
-
       <directionalLight position={[2, 2, 2]} intensity={0.5} color={"blue"} />
       <directionalLight position={[2.2, 2, 3]} intensity={0.5} color={"blue"} />
-
       <directionalLight
         position={[3, -1.5, 1]}
         intensity={0.2}
         color={"blue"}
       />
-
       <directionalLight
         position={[0, 2, 2]}
         intensity={1.5}
         color={"#f9fafb"}
       />
       <ambientLight intensity={0.5} />
-
       <Float rotationIntensity={0.4} floatIntensity={0.2}>
         <primitive
           object={Mac.scene}
-          rotation={[0.1, 0.5, 0]}
-          position={[0.03, -0.065, 0]}>
+          rotation={isIPhone13 ? [0.04, 0.45, 0] : [0.1, 0.5, 0]}
+          position={isIPhone13 ? [0.08, -0.09, 0] : [0.03, -0.065, 0]}>
           <Html
             transform
             wrapperClass="htmlScreen"
             distanceFactor={0.118}
-            position={[0, 0.101, -0.147]}
+            position={isIPhone13 ? [-0.004, 0.27, -0.147] : [0, 0.101, -0.147]}
             rotation-x={-0.35}>
             <iframe src="https://cv-gabs.vercel.app/" />
           </Html>
