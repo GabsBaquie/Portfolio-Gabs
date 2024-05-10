@@ -7,9 +7,12 @@ function CameraController() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 950) {
+      if (window.innerWidth < 700) {
         // Si la largeur de la fenêtre est inférieure à 950px (typiquement un appareil mobile)
-        camera.position.set(0.2, 0.2, size.width / size.height);
+        camera.position.set(-0.05, -0.03, size.width / (1.02 * size.height));
+      } else if (window.innerWidth < 850) {
+        // Si la largeur de la fenêtre est inférieure à 950px (typiquement un appareil mobile)
+        camera.position.set(0, -0.03, size.width / (1.2 * size.height));
       } else {
         // Si la largeur de la fenêtre est supérieure  (typiquement un appareil de bureau)
         camera.position.set(0, 0, size.width / (4 * size.height));
