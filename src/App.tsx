@@ -5,7 +5,35 @@ import {
   OrbitControls,
   useGLTF,
 } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
+import { useEffect } from "react";
+
+function CameraController() {
+  const { camera, size } = useThree();
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 950) {
+        // Si la largeur de la fenêtre est inférieure à 950px (typiquement un appareil mobile)
+        camera.position.set(0.2, 0.2, size.width / size.height);
+      } else {
+        // Si la largeur de la fenêtre est supérieure  (typiquement un appareil de bureau)
+        camera.position.set(0, 0, size.width / (4 * size.height));
+      }
+      camera.updateProjectionMatrix();
+    };
+
+    handleResize(); // Appeler la fonction une fois pour définir la position initiale
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [camera, size]);
+
+  return null;
+}
 
 function App() {
   const Mac = useGLTF("/MacBook.glb");
@@ -18,6 +46,7 @@ function App() {
         far: 2000,
         position: [0, 0, 0.4],
       }}>
+      <CameraController />
       <OrbitControls />
 
       <directionalLight position={[2, 2, 2]} intensity={0.5} color={"blue"} />
@@ -40,7 +69,7 @@ function App() {
         <primitive
           object={Mac.scene}
           rotation={[0.1, 0.5, 0]}
-          position={[0.05, -0.058, 0]}>
+          position={[0.03, -0.065, 0]}>
           <Html
             transform
             wrapperClass="htmlScreen"
@@ -48,7 +77,6 @@ function App() {
             position={[0, 0.101, -0.147]}
             rotation-x={-0.35}>
             <iframe src="https://cv-gabs.vercel.app/" />
-            {/* https://www.behance.net/embed/project/164549871?ilo0=1 */}
           </Html>
         </primitive>
       </Float>
