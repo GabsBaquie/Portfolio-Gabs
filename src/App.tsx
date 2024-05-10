@@ -72,7 +72,10 @@ function App() {
             distanceFactor={0.118}
             position={[0, 0.101, -0.147]}
             rotation-x={-0.35}>
-            <iframe src="https://cv-gabs.vercel.app/" />
+            <iframe
+              src="https://cv-gabs.vercel.app/"
+              sandbox="allow-scripts allow-same-origin"
+            />
           </Html>
         </primitive>
       </Float>
