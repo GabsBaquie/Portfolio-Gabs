@@ -1,6 +1,13 @@
-import { ContactShadows, Float, Html, useGLTF } from "@react-three/drei";
+import {
+  ContactShadows,
+  Float,
+  Html,
+  OrbitControls,
+  useGLTF,
+} from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 import { useEffect } from "react";
+import { isMobile } from "react-device-detect";
 
 function CameraController() {
   const { camera, size } = useThree();
@@ -35,6 +42,12 @@ function CameraController() {
 function App() {
   const Mac = useGLTF("/MacBook.glb");
 
+  useEffect(() => {
+    if (isMobile) {
+      window.location.href = "https://cv-gabs.vercel.app/";
+    }
+  }, []);
+
   return (
     <Canvas
       camera={{
@@ -44,6 +57,7 @@ function App() {
         position: [0, 0, 0.4],
       }}>
       <CameraController />
+      <OrbitControls enableZoom={true} enablePan={false} enableRotate={false} />
 
       <directionalLight position={[2, 2, 2]} intensity={0.5} color={"blue"} />
       <directionalLight position={[2.2, 2, 3]} intensity={0.5} color={"blue"} />
@@ -72,10 +86,7 @@ function App() {
             distanceFactor={0.118}
             position={[0, 0.101, -0.147]}
             rotation-x={-0.35}>
-            <iframe
-              src="https://cv-gabs.vercel.app/"
-              sandbox="allow-scripts allow-same-origin"
-            />
+            <iframe src="https://cv-gabs.vercel.app/" />
           </Html>
         </primitive>
       </Float>
