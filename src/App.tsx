@@ -1,10 +1,4 @@
-import {
-  ContactShadows,
-  Float,
-  Html,
-  OrbitControls,
-  useGLTF,
-} from "@react-three/drei";
+import { ContactShadows, Float, Html, useGLTF } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 
@@ -26,7 +20,7 @@ function CameraController() {
       camera.updateProjectionMatrix();
     };
 
-    handleResize(); // Appeler la fonction une fois pour définir la position initiale
+    handleResize();
 
     window.addEventListener("resize", handleResize);
 
