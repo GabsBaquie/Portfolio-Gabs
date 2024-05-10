@@ -52,6 +52,7 @@ function App() {
       }}>
       <CameraController />
       {!isMobile && <OrbitControls />}
+      <OrbitControls />
       <directionalLight position={[2, 2, 2]} intensity={0.5} color={"blue"} />
       <directionalLight position={[2.2, 2, 3]} intensity={0.5} color={"blue"} />
 
