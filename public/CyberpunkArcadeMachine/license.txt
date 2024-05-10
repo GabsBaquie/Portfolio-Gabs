@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cyberpunk Arcade Machine
+* source:	https://sketchfab.com/3d-models/cyberpunk-arcade-machine-5a2ec1fb48be42efa91f44f4de90201e
+* author:	Zlat (https://sketchfab.com/goldie)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cyberpunk Arcade Machine" (https://sketchfab.com/3d-models/cyberpunk-arcade-machine-5a2ec1fb48be42efa91f44f4de90201e) by Zlat (https://sketchfab.com/goldie) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

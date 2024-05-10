@@ -1,0 +1,11 @@
+Model Information:
+* title:	Game Boy
+* source:	https://sketchfab.com/3d-models/game-boy-e846491977964e2ea72227c2ee684f46
+* author:	elodiaa (https://sketchfab.com/elodiaa)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Game Boy" (https://sketchfab.com/3d-models/game-boy-e846491977964e2ea72227c2ee684f46) by elodiaa (https://sketchfab.com/elodiaa) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
