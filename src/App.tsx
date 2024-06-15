@@ -53,9 +53,9 @@ function App() {
   return (
     <Canvas
       camera={{
-        fov: 40,
+        fov: 38,
         near: 0.1,
-        far: 2000,
+        far: 2500,
         position: [0, 0, 0],
       }}>
       <CameraController />
@@ -81,7 +81,7 @@ function App() {
         <primitive
           object={Mac.scene}
           rotation={isIPhone13 ? [0.04, 0.45, 0] : [0.2, 0.35, 0]}
-          position={isIPhone13 ? [0.08, -0.09, 0] : [0.04, -0.07, 0]}>
+          position={isIPhone13 ? [0.08, -0.09, 0] : [0.04, -0.09, 0]}>
           <Html
             transform
             wrapperClass="htmlScreen"
