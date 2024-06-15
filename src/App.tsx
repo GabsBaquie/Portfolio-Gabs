@@ -59,7 +59,11 @@ function App() {
         position: [0, 0, 0],
       }}>
       <CameraController />
-      <OrbitControls enableZoom={true} enablePan={false} enableRotate={false} />
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        enableRotate={false}
+      />
       <directionalLight position={[2, 2, 2]} intensity={0.5} color={"blue"} />
       <directionalLight position={[2.2, 2, 3]} intensity={0.5} color={"blue"} />
       <directionalLight
@@ -76,7 +80,7 @@ function App() {
       <Float rotationIntensity={0.4} floatIntensity={0.1}>
         <primitive
           object={Mac.scene}
-          rotation={isIPhone13 ? [0.04, 0.45, 0] : [0.2, 0.3, 0]}
+          rotation={isIPhone13 ? [0.04, 0.45, 0] : [0.2, 0.35, 0]}
           position={isIPhone13 ? [0.08, -0.09, 0] : [0.04, -0.07, 0]}>
           <Html
             transform
