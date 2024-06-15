@@ -6,7 +6,7 @@ import {
   useGLTF,
 } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { isIPhone13, isMobile } from "react-device-detect";
 
 function CameraController() {
@@ -44,34 +44,20 @@ function App() {
 
   // Mobile responsive
 
-  const [showMessage, setShowMessage] = useState(false);
-
   useEffect(() => {
     if (isMobile) {
-      setShowMessage(true);
-      setTimeout(() => {
-        window.location.href = "https://cv-gabs.vercel.app/";
-      }, 5000);
+      window.location.href = "https://cv-gabs.vercel.app/";
     }
-  }, []);
+  });
 
   return (
     <Canvas
       camera={{
-        fov: 45,
+        fov: 35,
         near: 0.1,
         far: 2000,
-        position: [0, 0, 0.4],
+        position: [0.5, 0, 0.4],
       }}>
-      // Message d'alerte pour les mobiles
-      {showMessage && (
-        <Html fullscreen>
-          <h1 style={{ color: "white", opacity: "0.5", margin: "22px" }}>
-            Vous serez dirigé vers la version mobile de ce site dans quelques
-            secondes...
-          </h1>
-        </Html>
-      )}
       <CameraController />
       <OrbitControls enableZoom={true} enablePan={false} enableRotate={false} />
       <directionalLight position={[2, 2, 2]} intensity={0.5} color={"blue"} />
