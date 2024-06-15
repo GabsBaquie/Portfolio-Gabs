@@ -48,7 +48,7 @@ function App() {
     if (isMobile) {
       window.location.href = "https://cv-gabs.vercel.app/";
     }
-  });
+  }, []);
 
   return (
     <Canvas
